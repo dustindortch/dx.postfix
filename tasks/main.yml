@@ -12,12 +12,12 @@
 - name: postfix configuration generation
   template:
     src: main.cf.j2
-    dest: "{{ postfix_config_file }}"
+    dest: "{{ dx_postfix_config_file }}"
     mode: 0644
   notify: postfix reload
 
 - name: postfix enable
   service:
     name: postfix
-    state: "{{ postfix_service_state }}"
-    enabled: "{{ postfix_service_enabled }}"
+    state: "{{ dx_postfix_service_state }}"
+    enabled: "{{ dx_postfix_service_enabled }}"
