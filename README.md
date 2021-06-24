@@ -36,6 +36,13 @@ ${{$compatibility_level} < {1} ? {yes} : {no}}
         yum:
           name: '*'
           state: latest
+        when: ansible_facts['os_family'] == "RedHat"
+      - name: apt update
+        apt:
+          upgrade: 'yes'
+          update_cache: yes
+          valid_cache_time: 86400
+        when: ansible_facts['os_family'] == "Debian"
 
      vars:
        dx_postfix_inet_protocols: ipv4
