@@ -26,7 +26,7 @@ ${{$compatibility_level} < {1} ? {yes} : {no}}
 
 ```yaml
 ---
-  - name: postfix configura as mail relay
+  - name: postfix configure as mail relay
     become: true
     gather_facts: true
     hosts: all
