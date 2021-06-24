@@ -4,7 +4,9 @@ dx_postfix_config_file: /etc/postfix/main.cf
 dx_postfix_service_state: started
 dx_postfix_service_enabled: true
 
-# Default Postfix Values Below Here --- DO NOT EDIT ---
+# --- DO NOT EDIT BELOW THIS LINE ---
+# Default Postfix Values (derived from `postconf -d` with some required updates)
+# Override by setting variables in defaults/main.yml
 dx_postfix_2bounce_notice_recipient: postmaster
 dx_postfix_access_map_defer_code: 450
 dx_postfix_access_map_reject_code: 554
