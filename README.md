@@ -1,9 +1,11 @@
 # dx.postfix
+
 Ansible role for Postfix
 
 Idempotent implementation of Postfix role allows only defining of desired properties.
 
 Example - SMTP Relay:
+
 ```yaml
 ---
   - name: postfix configura as mail relay
