@@ -4,7 +4,7 @@ Ansible role for Postfix
 
 Idempotent implementation of Postfix role allows only defining of desired properties.
 
-All Postfix property names are supported (using a prefix of `dx_postfix_`) with the exception of `2bounce_notice_recipient` which should be written as `dx_postfix_two_bounce_notice_recipient`, instead.
+All Postfix property names are supported (using a prefix of `dx_postfix_`).
 
 Boolean values of "yes" or "no" should be wrapped in quotes within YAML code to prevent Ansible from converting to "True" and "False" values which would break the `main.cf`.
 

@@ -5,7 +5,7 @@ dx_postfix_service_state: started
 dx_postfix_service_enabled: true
 
 # Default Postfix Values Below Here --- DO NOT EDIT ---
-dx_postfix_two_bounce_notice_recipient: postmaster
+dx_postfix_2bounce_notice_recipient: postmaster
 dx_postfix_access_map_defer_code: 450
 dx_postfix_access_map_reject_code: 554
 dx_postfix_address_verify_cache_cleanup_interval: 12h
