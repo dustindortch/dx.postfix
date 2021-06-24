@@ -4,7 +4,25 @@ Ansible role for Postfix
 
 Idempotent implementation of Postfix role allows only defining of desired properties.
 
-Example - SMTP Relay:
+All Postfix property names are supported with the exception of `2bounce_notice_recipient` which should be written as `two_bounce_notice_recipient`, instead.
+
+Boolean values of "yes" or "no" should be wrapped in quotes within YAML code to prevent Ansible from converting to "True" and "False" values which would break the `main.cf`.
+
+Conditionals based on the value of `compatibility_level` are implemented as Jinja conditionals instead of postconf conditionals, but still as ternaries:
+
+## Postconf conditional
+
+```text
+${{$compatibility_level} < {1} ? {yes} : {no}}
+```
+
+## Jinja conditional
+
+```jinja
+{{ (compatibility_level < 1) | ternary('yes','no') }}
+```
+
+## Example - SMTP Relay
 
 ```yaml
 ---
