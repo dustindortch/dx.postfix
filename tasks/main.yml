@@ -9,6 +9,11 @@
     name: postfix
     state: present
 
+- name: cyrus-sasl install
+  package:
+    name: cyrus-sasl
+    state: present
+
 - name: postfix configuration generation
   template:
     src: main.cf.j2
@@ -21,3 +26,17 @@
     name: postfix
     state: "{{ dx_postfix_service_state }}"
     enabled: "{{ dx_postfix_service_enabled }}"
+
+- name: saslauthd enable
+  service:
+    name: saslauthd
+    state: "{{ dx_postfix_service_state }}"
+    enabled: "{{ dx_postfix_service_enabled }}"
+  when: dx_postfix_smtpd_sasl_auth_enable == "yes"
+
+- name: saslauthd disable
+  service:
+    name: saslauthd
+    state: "{{ dx_postfix_service_state }}"
+    enabled: "{{ dx_postfix_service_enabled }}"
+  when: dx_postfix_smtpd_sasl_auth_enable == "no"
