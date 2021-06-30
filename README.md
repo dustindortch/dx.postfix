@@ -50,6 +50,11 @@ ${{$compatibility_level} < {1} ? {yes} : {no}}
        dx_postfix_mydomain: "example.com"
        dx_postfix_mynetworks: "192.0.2.0/24"
 
+       dx_postfix_smtpd_sasl_type: cyrus
+       dx_postfix_smtpd_sasl_path: smtpd
+       dx_postfix_smtpd_sasl_auth_enable: "yes"
+       dx_postfix_smtpd_recipient_restrictions: permit_sasl_authenticated, permit_mynetworks, reject_unauth_destination
+
      tasks:
        - name: telnet package install
          package:
